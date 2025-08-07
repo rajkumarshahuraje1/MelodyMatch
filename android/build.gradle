@@ -1,0 +1,43 @@
+// Root-level build.gradle
+
+// Buildscript block for dependencies (must include classpath for Google services and Kotlin Gradle plugin)
+buildscript {
+    repositories {
+        google()           // Google's repository for Firebase and Play services
+        mavenCentral()     // Maven Central for other dependencies
+    }
+    dependencies {
+        // The classpath for Google Services plugin
+        classpath 'com.google.gms:google-services:4.4.2'  // Ensure this is compatible with your Firebase dependencies
+
+        // The classpath for Android Gradle Plugin
+        classpath 'com.android.tools.build:gradle:8.4.2'  // Ensure compatibility with your Gradle version
+
+        // The classpath for Kotlin Gradle Plugin
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0"  // Ensure this matches Kotlin in your app-level build.gradle
+    }
+}
+
+// All projects (including subprojects) use these repositories
+allprojects {
+    repositories {
+        google()        // Google's repository
+        mavenCentral()  // Maven Central repository
+    }
+}
+
+// Build directories configuration for root and subprojects
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+
+// Ensuring 'app' module is evaluated before others in multi-module projects
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+// Clean task to delete the build directory
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
+}

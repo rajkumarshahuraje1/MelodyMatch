@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "829937653024",
+    "project_id": "moodymatch-9ee25",
+    "storage_bucket": "moodymatch-9ee25.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829937653024:android:1e33e0c597793c192bf345",
+        "android_client_info": {
+          "package_name": "com.example.moodymatch"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATEnQ05UGP6Ex4WdWAyq9Vzp2Uc_I3vp0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
